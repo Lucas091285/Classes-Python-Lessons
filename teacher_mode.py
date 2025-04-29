@@ -38,5 +38,3 @@ for question, answer in flashcards.items():
         print(f"Score: {score}, Streak: {streak}\n")
 
 print(f"Final Score: {score} | Final Streak: {streak}")
-
-dhchhd
