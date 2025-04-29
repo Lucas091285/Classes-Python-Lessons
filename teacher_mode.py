@@ -1,31 +1,40 @@
-Teacher = mode_1
-Student = mode_2
+import json
 
-while Teacher == mode_1:
-    class Teacher:
-        def __init__(self, Key, Value):
-            self.Key = Question
-            self.Value = Answer
+flashcard = {"What is the capital of France?": "Paris"}
 
-        def display_info(self):
-            return f"{self.Key} {self.Vaue}"
 
-        def to_dict(self):
-            return {"Key": self.Key, "value": self. Value}
+with open("FlashCards.json", "w") as file:
+    json.dump(flashcard, file, indent=4)
 
-x = input("What is the question?")
-y = input("What is the answer?")
-if x == exit:
-    break
-print(x, y)
 
-while Student == mode_2:
-    streak = 0
-    score = 0
-    if y == input:
+with open("FlashCards.json", "r") as file:
+    flashcards = json.load(file)
+
+score = 0
+streak = 0
+
+for question, answer in flashcards.items():
+    user_input = input(f"{question} ").strip()
+
+    if user_input.lower() == answer.lower():
         score += 1
-        if y == input:
-            streak += 1
-                else:
-                print(streak is back to 0)
-                        streak = 0
+        streak += 1
+        print(f" Correct, Score: {score}, Streak: {streak}\n")
+    else:
+        streak = 0
+        print(f" Wrong, The correct answer was: {answer}")
+        print(f"Score: {score}, Streak: {streak}\n")
+
+for question, answer in flashcards.items():
+    user_input = input(f"{question} ").strip()
+
+    if user_input.lower() == answer.lower():
+        score += 1
+        streak += 1
+        print(f" Correct, Score: {score}, Streak: {streak}\n")
+    else:
+        streak = 0
+        print(f" Wrong, The correct answer was: {answer}")
+        print(f"Score: {score}, Streak: {streak}\n")
+
+print(f"Final Score: {score} | Final Streak: {streak}")
